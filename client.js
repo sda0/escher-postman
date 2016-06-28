@@ -8,7 +8,8 @@ const options = signer(
         apiSecret: 'abcd1234'
     },
     'http://admin.ingatlan.docker/api/ads/20030011/m1xClusterInfo',
-    'PUT'
+    'PUT',
+    ''
 );
 
 console.log(options);

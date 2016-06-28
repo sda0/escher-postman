@@ -23129,7 +23129,8 @@ const options = signer(
         apiSecret: postman.getEnvironmentVariable('escher-apiSecret')
     },
     request.url,
-    request.method
+    request.method,
+    request.data || ''
 );
 
 postman.setEnvironmentVariable("date", options.headers[1][1]);
@@ -26385,7 +26386,7 @@ module.exports.win32 = win32;
 var Escher = require('escher-auth');
 var Url = require('url');
 
-module.exports = function (escherParams, url, method) {
+module.exports = function (escherParams, url, method, data) {
     var escher = new Escher(escherParams);
 
     var request = {
@@ -26405,7 +26406,7 @@ module.exports = function (escherParams, url, method) {
         ]
     };
 
-    return escher.signRequest(options, '');
+    return escher.signRequest(options, data);
 };
 
 

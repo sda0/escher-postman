@@ -7,7 +7,8 @@ const options = signer(
         apiSecret: postman.getEnvironmentVariable('escher-apiSecret')
     },
     request.url,
-    request.method
+    request.method,
+    request.data || ''
 );
 
 postman.setEnvironmentVariable("date", options.headers[1][1]);
