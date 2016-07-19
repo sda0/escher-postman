@@ -1,4 +1,4 @@
-## Postman Pre-request Script generáló Escher authentikációhoz
+## Postman Pre-request Script generator for Escher authentication
 
 ### Install
 ```
@@ -7,23 +7,29 @@ npm install
 npm install -g browserify
 ```
 
-### Generálás
+### Generating
 
 ```
 browserify node-postman.js > postman-pre-request.js
 ```
 
-### Használat
+### Usage
 
-Postmanben szükség van egy environmentre, ahol be kell állítani a megfelelő Escher adatokat.
+In Postman, create an environment with your Escher details:
 
-A hívásnál a Pre-request Script fülre be kell másolni a postman-pre-request.js fálj tartalmát.
+escher-credentialScope: ingatlancom
+escher-accessKeyId: moderation_icom_v1
+escher-apiSecret: abcd1234
 
-A hívásnál fel kell venni a következő headereket:
+Copy the contents of the postman-pre-request.js file to the Pre-request Script tab. 
+
+Add the following headers to the request:
 
 X-Escher-Auth: {{auth}}
 X-Escher-Date: {{date}}
 
 ### Debug
 
-a client.js-sel lehet tesztelni a végpontot node alól is.
+You can test the endpoint with client.js using node.
+
+Sometimes you have to play with Postman Interceptor settings.

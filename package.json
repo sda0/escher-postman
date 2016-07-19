@@ -1,13 +1,13 @@
 {
   "name": "escher-postman",
   "version": "1.0.0",
-  "description": "Postman Pre-request Script generáló Escher authentikációhoz",
+  "description": "Postman Pre-request Script generator for Escher authentication",
   "main": "client.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "feher.zoltan",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "escher-auth": "^0.3.0"
   }
