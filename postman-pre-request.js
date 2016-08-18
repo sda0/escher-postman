@@ -23130,7 +23130,7 @@ const options = signer(
     },
     request.url,
     request.method,
-    request.data || ''
+    _.isEmpty(request.data) ? '' : request.data
 );
 
 postman.setEnvironmentVariable("date", options.headers[1][1]);
