@@ -23122,6 +23122,29 @@ module.exports = function(arr, obj){
 },{}],230:[function(require,module,exports){
 const signer = require('./signer');
 
+const serialize = function(obj) {
+    var str = [];
+    for(var p in obj)
+        if (obj.hasOwnProperty(p)) {
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        }
+    return str.join("&");
+};
+
+const getData = function (request) {
+    if (_.isEmpty(request.data)) {
+        return '';
+    }
+
+    if (request.dataMode === 'raw') {
+        return request.data;
+    }
+
+    if (request.dataMode === "urlencoded") {
+        return serialize(request.data);
+    }
+};
+
 const options = signer(
     {
         credentialScope: postman.getEnvironmentVariable('escher-credentialScope'),
@@ -23130,7 +23153,7 @@ const options = signer(
     },
     request.url,
     request.method,
-    _.isEmpty(request.data) ? '' : request.data
+    getData(request)
 );
 
 postman.setEnvironmentVariable("date", options.headers[1][1]);
