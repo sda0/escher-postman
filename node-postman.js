@@ -1,4 +1,4 @@
-const signer = require('./signer');
+const signer = require("./signer");
 
 const serialize = function(obj) {
     var str = [];
@@ -10,11 +10,11 @@ const serialize = function(obj) {
 };
 
 const getData = function (request) {
-    if (_.isEmpty(request.data)) {
+    if (request.method === "GET" || _.isEmpty(request.data)) {
         return '';
     }
 
-    if (request.dataMode === 'raw') {
+    if (request.dataMode === "raw") {
         return request.data;
     }
 
@@ -25,9 +25,9 @@ const getData = function (request) {
 
 const options = signer(
     {
-        credentialScope: postman.getEnvironmentVariable('escher-credentialScope'),
-        accessKeyId:  postman.getEnvironmentVariable('escher-accessKeyId'),
-        apiSecret: postman.getEnvironmentVariable('escher-apiSecret')
+        credentialScope: postman.getEnvironmentVariable("escher-credentialScope"),
+        accessKeyId:  postman.getEnvironmentVariable("escher-accessKeyId"),
+        apiSecret: postman.getEnvironmentVariable("escher-apiSecret")
     },
     request.url,
     request.method,
