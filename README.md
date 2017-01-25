@@ -1,19 +1,6 @@
-## Postman Pre-request Script generator for Escher authentication
+# Postman Pre-request Script generator for Escher authentication
 
-### Install
-```
-npm install
-
-npm install -g browserify
-```
-
-### Generating
-
-```
-browserify node-postman.js > postman-pre-request.js
-```
-
-### Usage
+## Usage
 
 In Postman, create an environment with your Escher details:
 ```
@@ -28,6 +15,22 @@ Add the following headers to the request:
 X-Escher-Auth: {{auth}}
 X-Escher-Date: {{date}}
 ```
+
+## Development
+
+### Install requirements
+```
+npm install
+
+npm install -g browserify
+```
+
+### Generate pre-request script
+
+```
+browserify node-postman.js > postman-pre-request.js
+```
+
 ### Debug
 
 You can test the endpoint with client.js using node.
