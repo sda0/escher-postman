@@ -21,6 +21,7 @@ const getData = function (request) {
     if (request.dataMode === "urlencoded") {
         return serialize(request.data);
     }
+    return request.data;
 };
 
 const options = signer(
