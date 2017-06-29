@@ -3,11 +3,11 @@ const http = require('http');
 
 const options = signer(
     {
-        credentialScope: 'ingatlancom',
-        accessKeyId: 'moderation_icom_v1',
-        apiSecret: 'abcd1234'
+        credentialScope: '***',
+        accessKeyId: '****',
+        apiSecret: '****'
     },
-    'http://admin.ingatlan.docker/api/ads/20030011/m1xClusterInfo',
+    'http://***.com/api/ads/20030011/m1xClusterInfo',
     'PUT',
     ''
 );
