@@ -5,7 +5,7 @@ module.exports = function (escherParams, url, method, data) {
     var escher = new Escher(escherParams);
 
     var request = {
-            url: url
+            url: url.replace(/{{(\w+)}}/, function(p0, p1) {return postman.getEnvironmentVariable(p1);} )
         };
 
     l = Url.parse(request.url);
