@@ -35,5 +35,5 @@ const options = signer(
     getData(request)
 );
 
-postman.setEnvironmentVariable("date", options.headers[1][1]);
-postman.setEnvironmentVariable("auth", options.headers[2][1]);
+postman.setEnvironmentVariable("X-Escher-Date", options.headers[1][1]);
+postman.setEnvironmentVariable("X-Escher-Auth", options.headers[2][1]);
